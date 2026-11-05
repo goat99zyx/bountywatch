@@ -48,13 +48,15 @@ jobs:
 
       - name: Snapshot, compare, email, publish page
         env:
+          SUBSCRIBERS_KEY: ${{ secrets.SUBSCRIBERS_KEY }}
           SUBSCRIBERS_JSON: ${{ secrets.SUBSCRIBERS_JSON }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          # Brevo by default; override with secrets to use another SMTP provider.
+          SMTP_HOST: ${{ secrets.SMTP_USER && (secrets.SMTP_HOST || 'smtp-relay.brevo.com') || '' }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT || '587' }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          MAIL_FROM: ${{ secrets.MAIL_FROM }}
-          MAIL_REPLY_TO: ${{ secrets.MAIL_REPLY_TO }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM || 'BountyWatch <zyx888goat@outlook.com>' }}
+          MAIL_REPLY_TO: ${{ secrets.MAIL_REPLY_TO || 'zyx888goat@outlook.com' }}
         run: |
           python -m bountywatch run --source "git:src@HEAD" --securitytxt --send \
             --subscribers config/subscribers.example.json \

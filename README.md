@@ -49,14 +49,14 @@ Repository secrets:
 
 | Secret | Example |
 |---|---|
-| `SUBSCRIBERS_JSON` | `[{"email":"a@b.com","plan":"pro","expires":"2026-12-05","watch":{"programs":["github","coinbase"],"domains":["*.coinbase.com"]}}]` |
-| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` | any SMTP provider (Brevo, Resend, Postmark, SES, Zoho) |
+| `SUBSCRIBERS_KEY` | private key that unlocks `subscribers/*.enc` (add subscribers with `python -m bountywatch add-subscriber --email ... --programs github,coinbase`) |
+| `SMTP_USER`, `SMTP_PASS` | Brevo SMTP login and SMTP key (host defaults to smtp-relay.brevo.com:587; set `SMTP_HOST`/`SMTP_PORT` for another provider) |
 | `MAIL_FROM` | `BountyWatch <digest@yourdomain.com>` |
 | `MAIL_REPLY_TO` | where watchlist changes go |
 
 Repository variable `SIGNUP_URL`: the checkout link shown on the free page.
 
-Nothing is sent unless both `SMTP_HOST` and `SUBSCRIBERS_JSON` are set.
+Nothing is sent until the SMTP secrets and at least one real subscriber exist. `SUBSCRIBERS_JSON` (a JSON list) also works instead of encrypted files.
 
 ### Watchlist options
 

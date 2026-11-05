@@ -90,13 +90,20 @@ def _load_changes(st):
 def cmd_report(a, st):
     changes, progs, info = _load_changes(st)
     day = a.day or datetime.fromisoformat(info["taken_at"]).strftime("%a %d %b %Y")
-    subs = json.loads(os.environ["SUBSCRIBERS_JSON"]) if os.environ.get("SUBSCRIBERS_JSON") else \
-        json.loads(Path(a.subscribers).read_text())
+    subs = []
+    if os.environ.get("SUBSCRIBERS_KEY") and Path("subscribers").exists():
+        from . import subscribers as SB
+        subs += SB.load_all(os.environ["SUBSCRIBERS_KEY"])
+    if os.environ.get("SUBSCRIBERS_JSON"):
+        subs += json.loads(os.environ["SUBSCRIBERS_JSON"])
+    have_real = bool(subs)
+    if not subs:
+        subs = json.loads(Path(a.subscribers).read_text())
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     sent = 0
-    if a.send and not (os.environ.get("SMTP_HOST") and os.environ.get("SUBSCRIBERS_JSON")):
-        print("SMTP_HOST or SUBSCRIBERS_JSON is not set: writing previews only, nothing sent")
+    if a.send and not (os.environ.get("SMTP_HOST") and have_real):
+        print("No SMTP settings or no real subscribers: writing previews only, nothing sent")
         a.send = False
     for i, sub in enumerate(subs):
         if not sub.get("active", True):
@@ -128,7 +135,15 @@ def cmd_report(a, st):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="bountywatch")
-    ap.add_argument("command", choices=["run", "snapshot", "diff", "report"])
+    ap.add_argument("command", choices=["run", "snapshot", "diff", "report", "add-subscriber"])
+    ap.add_argument("--email")
+    ap.add_argument("--programs", default="", help="comma-separated handles or names")
+    ap.add_argument("--watch-domains", dest="watch_domains", default="")
+    ap.add_argument("--all", dest="all_programs", action="store_true")
+    ap.add_argument("--bounty-only", dest="bounty_only", action="store_true")
+    ap.add_argument("--days", type=int, default=30)
+    ap.add_argument("--plan", default="standard")
+    ap.add_argument("--start", default=None, help="pass start date YYYY-MM-DD (default today)")
     ap.add_argument("--db", default="data/bountywatch.sqlite")
     ap.add_argument("--source", default="remote", help="remote | <dir with *_data.json> | git:<repo>@<commit>")
     ap.add_argument("--label", default="")
@@ -145,6 +160,14 @@ def main(argv=None):
     ap.add_argument("--day", default=None)
     ap.add_argument("--keep", type=int, default=3, help="snapshots to keep (each is ~8 MB)")
     a = ap.parse_args(argv)
+    if a.command == "add-subscriber":
+        from datetime import date
+        from . import subscribers as SB
+        rec = SB.make_record(a.email, a.programs.split(","), a.watch_domains.split(","), a.all_programs,
+                             a.bounty_only, a.days, a.plan, date.fromisoformat(a.start) if a.start else None)
+        path = SB.save(rec)
+        print(f"saved {path} (pass ends {rec['expires']})")
+        return 0
     Path(a.db).parent.mkdir(parents=True, exist_ok=True)
     st = Store(a.db)
     if a.command == "snapshot":

@@ -140,5 +140,22 @@ class Watchlist(unittest.TestCase):
         self.assertIn("ends in 2 days", r["text"])
 
 
+class Subscribers(unittest.TestCase):
+    def test_roundtrip(self):
+        import shutil, subprocess, tempfile
+        from pathlib import Path
+        from bountywatch import subscribers as SB
+        if not shutil.which("openssl"):
+            self.skipTest("openssl missing")
+        d = Path(tempfile.mkdtemp())
+        subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-keyout", str(d / "k.pem"),
+                        "-out", str(d / "cert.pem"), "-days", "2", "-subj", "/CN=t"], check=True, capture_output=True)
+        rec = SB.make_record("A@B.com", ["github"], days=30)
+        path = SB.save(rec, d)
+        self.assertNotIn(b"A@B.com", path.read_bytes())
+        got = SB.load_all((d / "k.pem").read_text(), d)
+        self.assertEqual(got[0]["watch"]["programs"], ["github"])
+
+
 if __name__ == "__main__":
     unittest.main()
