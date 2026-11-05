@@ -1,0 +1,5 @@
+[
+  {"email": "hunter@example.com", "plan": "pro",
+   "watch": {"programs": ["github", "coinbase", "shopify", "h1:security", "paypal", "uber"], "domains": ["*.coinbase.com"]}},
+  {"email": "allbounties@example.com", "plan": "standard", "watch": {"all": true, "bounty_only": true}}
+]

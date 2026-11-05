@@ -1,0 +1,9 @@
+data/
+out/
+outw/
+site/
+src/
+vendor/
+*.png
+__pycache__/
+product/

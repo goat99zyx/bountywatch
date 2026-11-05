@@ -1,0 +1,3 @@
+# Extra domains to check for security.txt, one per line (HackerOne program websites are checked automatically).
+github.com
+cloudflare.com

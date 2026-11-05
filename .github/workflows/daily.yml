@@ -1,0 +1,79 @@
+name: BountyWatch daily
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # every day at 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bountywatch-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Get the last few days of public program data
+        run: git clone --quiet --shallow-since="3 days ago" https://github.com/arkadiyt/bounty-targets-data src
+
+      - name: Restore yesterday's snapshot
+        uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: bw-db-${{ github.run_id }}
+          restore-keys: bw-db-
+
+      - name: Build a baseline from 24 hours ago if there is no saved snapshot
+        run: |
+          if [ ! -f data/bountywatch.sqlite ]; then
+            C=$(git -C src rev-list -1 --before="24 hours ago" HEAD)
+            python -m bountywatch snapshot --source "git:src@$C" --label baseline
+          fi
+
+      - name: Get the published page history
+        run: |
+          git clone --quiet --depth 1 --branch gh-pages "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" site \
+            || mkdir -p site
+          rm -rf site/.git
+
+      - name: Snapshot, compare, email, publish page
+        env:
+          SUBSCRIBERS_JSON: ${{ secrets.SUBSCRIBERS_JSON }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          MAIL_REPLY_TO: ${{ secrets.MAIL_REPLY_TO }}
+        run: |
+          python -m bountywatch run --source "git:src@HEAD" --securitytxt --send \
+            --subscribers config/subscribers.example.json \
+            --site site \
+            --site-url "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" \
+            --signup-url "${{ vars.SIGNUP_URL || 'https://payhip.com/b/K4JUq' }}"
+
+      - name: Save today's snapshot
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data
+          key: bw-db-${{ github.run_id }}
+
+      - name: Publish the free page to gh-pages
+        run: |
+          cd site
+          touch .nojekyll
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="BountyWatch" -c user.email="actions@users.noreply.github.com" commit -q -m "Daily update"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" gh-pages
