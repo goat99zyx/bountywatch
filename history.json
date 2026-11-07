@@ -1,0 +1,32 @@
+[
+ {
+  "date": "Thu 05 Nov 2026",
+  "changes": 43,
+  "new_bounty_programs": [
+   "Lightspark Public Bug Bounty"
+  ],
+  "removed": []
+ },
+ {
+  "date": "Fri 06 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "TrueLayer"
+  ],
+  "removed": [
+   "Lightspark Public Bug Bounty",
+   "Sqills"
+  ]
+ },
+ {
+  "date": "Sat 07 Nov 2026",
+  "changes": 23,
+  "new_bounty_programs": [],
+  "removed": [
+   "Brave Software",
+   "Here Technologies",
+   "PDQ bug bounty program",
+   "TrueLayer"
+  ]
+ }
+]
