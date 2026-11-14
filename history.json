@@ -1,0 +1,127 @@
+[
+ {
+  "date": "Thu 05 Nov 2026",
+  "changes": 43,
+  "new_bounty_programs": [
+   "Lightspark Public Bug Bounty"
+  ],
+  "removed": []
+ },
+ {
+  "date": "Fri 06 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "TrueLayer"
+  ],
+  "removed": [
+   "Lightspark Public Bug Bounty",
+   "Sqills"
+  ]
+ },
+ {
+  "date": "Sat 07 Nov 2026",
+  "changes": 23,
+  "new_bounty_programs": [],
+  "removed": [
+   "Brave Software",
+   "Here Technologies",
+   "PDQ bug bounty program",
+   "TrueLayer"
+  ]
+ },
+ {
+  "date": "Sun 08 Nov 2026",
+  "changes": 9,
+  "new_bounty_programs": [
+   "PDQ bug bounty program"
+  ],
+  "removed": [
+   "CM.com",
+   "Lansweeper Bug Bounty Program",
+   "Voi Scooters"
+  ]
+ },
+ {
+  "date": "Mon 09 Nov 2026",
+  "changes": 16,
+  "new_bounty_programs": [
+   "CM.com",
+   "Oasis Protocol Foundation",
+   "Voi Scooters"
+  ],
+  "removed": [
+   "Dstny",
+   "Skoda Auto Bug Bounty Program"
+  ]
+ },
+ {
+  "date": "Tue 10 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "Brave Software",
+   "FileZilla",
+   "Lansweeper Bug Bounty Program",
+   "Skoda Auto Bug Bounty Program"
+  ],
+  "removed": [
+   "Dynatrace",
+   "Voi Scooters"
+  ]
+ },
+ {
+  "date": "Wed 11 Nov 2026",
+  "changes": 36,
+  "new_bounty_programs": [
+   "BitMEX",
+   "Dstny",
+   "Lightspark Public Bug Bounty",
+   "Uphold",
+   "Veriff Bug Bounty"
+  ],
+  "removed": [
+   "LiteLLM (VDP)"
+  ]
+ },
+ {
+  "date": "Thu 12 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "DataCamp",
+   "Water-Link"
+  ],
+  "removed": [
+   "FileZilla",
+   "Lansweeper Bug Bounty Program",
+   "RubyGems",
+   "Uphold",
+   "Veriff Bug Bounty"
+  ]
+ },
+ {
+  "date": "Fri 13 Nov 2026",
+  "changes": 17,
+  "new_bounty_programs": [
+   "Anker"
+  ],
+  "removed": [
+   "Este\u00e9  Lauder",
+   "eufy Security",
+   "Superbank - Public Bug Bounty Program"
+  ]
+ },
+ {
+  "date": "Sat 14 Nov 2026",
+  "changes": 21,
+  "new_bounty_programs": [
+   "Altera",
+   "Lansweeper Bug Bounty Program",
+   "Veriff Bug Bounty"
+  ],
+  "removed": [
+   "Brave Software",
+   "DataCamp",
+   "Personio",
+   "UZ Leuven"
+  ]
+ }
+]
