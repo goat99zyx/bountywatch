@@ -1,0 +1,295 @@
+[
+ {
+  "date": "Thu 05 Nov 2026",
+  "changes": 43,
+  "new_bounty_programs": [
+   "Lightspark Public Bug Bounty"
+  ],
+  "removed": []
+ },
+ {
+  "date": "Fri 06 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "TrueLayer"
+  ],
+  "removed": [
+   "Lightspark Public Bug Bounty",
+   "Sqills"
+  ]
+ },
+ {
+  "date": "Sat 07 Nov 2026",
+  "changes": 23,
+  "new_bounty_programs": [],
+  "removed": [
+   "Brave Software",
+   "Here Technologies",
+   "PDQ bug bounty program",
+   "TrueLayer"
+  ]
+ },
+ {
+  "date": "Sun 08 Nov 2026",
+  "changes": 9,
+  "new_bounty_programs": [
+   "PDQ bug bounty program"
+  ],
+  "removed": [
+   "CM.com",
+   "Lansweeper Bug Bounty Program",
+   "Voi Scooters"
+  ]
+ },
+ {
+  "date": "Mon 09 Nov 2026",
+  "changes": 16,
+  "new_bounty_programs": [
+   "CM.com",
+   "Oasis Protocol Foundation",
+   "Voi Scooters"
+  ],
+  "removed": [
+   "Dstny",
+   "Skoda Auto Bug Bounty Program"
+  ]
+ },
+ {
+  "date": "Tue 10 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "Brave Software",
+   "FileZilla",
+   "Lansweeper Bug Bounty Program",
+   "Skoda Auto Bug Bounty Program"
+  ],
+  "removed": [
+   "Dynatrace",
+   "Voi Scooters"
+  ]
+ },
+ {
+  "date": "Wed 11 Nov 2026",
+  "changes": 36,
+  "new_bounty_programs": [
+   "BitMEX",
+   "Dstny",
+   "Lightspark Public Bug Bounty",
+   "Uphold",
+   "Veriff Bug Bounty"
+  ],
+  "removed": [
+   "LiteLLM (VDP)"
+  ]
+ },
+ {
+  "date": "Thu 12 Nov 2026",
+  "changes": 28,
+  "new_bounty_programs": [
+   "DataCamp",
+   "Water-Link"
+  ],
+  "removed": [
+   "FileZilla",
+   "Lansweeper Bug Bounty Program",
+   "RubyGems",
+   "Uphold",
+   "Veriff Bug Bounty"
+  ]
+ },
+ {
+  "date": "Fri 13 Nov 2026",
+  "changes": 17,
+  "new_bounty_programs": [
+   "Anker"
+  ],
+  "removed": [
+   "Este\u00e9  Lauder",
+   "eufy Security",
+   "Superbank - Public Bug Bounty Program"
+  ]
+ },
+ {
+  "date": "Sat 14 Nov 2026",
+  "changes": 21,
+  "new_bounty_programs": [
+   "Altera",
+   "Lansweeper Bug Bounty Program",
+   "Veriff Bug Bounty"
+  ],
+  "removed": [
+   "Brave Software",
+   "DataCamp",
+   "Personio",
+   "UZ Leuven"
+  ]
+ },
+ {
+  "date": "Sun 15 Nov 2026",
+  "changes": 8,
+  "new_bounty_programs": [],
+  "removed": [
+   "Lansweeper Bug Bounty Program",
+   "PDQ bug bounty program",
+   "Veriff Bug Bounty"
+  ]
+ },
+ {
+  "date": "Mon 16 Nov 2026",
+  "changes": 30,
+  "new_bounty_programs": [
+   "BoursoBank Bug Bounty Program",
+   "DataCamp",
+   "PDQ bug bounty program",
+   "Personio"
+  ],
+  "removed": [
+   "Sheer",
+   "Water-Link"
+  ]
+ },
+ {
+  "date": "Tue 17 Nov 2026",
+  "changes": 123,
+  "new_bounty_programs": [
+   "Brave Software",
+   "Veriff Bug Bounty",
+   "Water-Link"
+  ],
+  "removed": [
+   "1Password - Enterprise Password Manager",
+   "Cryptobox",
+   "DataCamp"
+  ]
+ },
+ {
+  "date": "Wed 18 Nov 2026",
+  "changes": 44,
+  "new_bounty_programs": [
+   "1Password Bug Bounty Program",
+   "Algolia",
+   "Coupang",
+   "Ninja Kiwi Games Bug Bounty program",
+   "Nord Security Managed Bug Bounty Engagement",
+   "UZ Leuven"
+  ],
+  "removed": [
+   "Abercrombie & Fitch Bug Bounty",
+   "Asana",
+   "Dstny",
+   "MariaDB",
+   "Moneybird",
+   "Posti Bug Bounty",
+   "Solidus",
+   "Veriff Bug Bounty"
+  ]
+ },
+ {
+  "date": "Thu 19 Nov 2026",
+  "changes": 99,
+  "new_bounty_programs": [
+   "Asana",
+   "Dstny",
+   "Lansweeper Bug Bounty Program"
+  ],
+  "removed": []
+ },
+ {
+  "date": "Fri 20 Nov 2026",
+  "changes": 46,
+  "new_bounty_programs": [
+   "Moneybird"
+  ],
+  "removed": [
+   "Global Payments",
+   "Kinepolis Group",
+   "Lansweeper Bug Bounty Program",
+   "Skoda Auto Bug Bounty Program",
+   "Worldpay"
+  ]
+ },
+ {
+  "date": "Sat 21 Nov 2026",
+  "changes": 173,
+  "new_bounty_programs": [
+   "Kinepolis Group"
+  ],
+  "removed": [
+   "Brave Software",
+   "Okapya",
+   "Water-Link"
+  ]
+ },
+ {
+  "date": "Sun 22 Nov 2026",
+  "changes": 6,
+  "new_bounty_programs": [],
+  "removed": [
+   "Kinepolis Group"
+  ]
+ },
+ {
+  "date": "Mon 23 Nov 2026",
+  "changes": 76,
+  "new_bounty_programs": [
+   "Here Technologies",
+   "Lansweeper Bug Bounty Program"
+  ],
+  "removed": [
+   "Klarna"
+  ]
+ },
+ {
+  "date": "Tue 24 Nov 2026",
+  "changes": 20,
+  "new_bounty_programs": [
+   "Brave Software",
+   "Uphold"
+  ],
+  "removed": [
+   "Challenge 1126",
+   "Oasis Protocol Foundation"
+  ]
+ },
+ {
+  "date": "Wed 25 Nov 2026",
+  "changes": 112,
+  "new_bounty_programs": [
+   "Kinepolis Group",
+   "Northern.tech",
+   "Posti Bug Bounty"
+  ],
+  "removed": [
+   "Altera",
+   "Indeed",
+   "Lansweeper Bug Bounty Program",
+   "Publitas"
+  ]
+ },
+ {
+  "date": "Thu 26 Nov 2026",
+  "changes": 17,
+  "new_bounty_programs": [
+   "Indeed"
+  ],
+  "removed": [
+   "Allegro",
+   "Brave Software",
+   "FDJ United (Online Betting and Gaming) - Bug Bounty program",
+   "Fifth Third Bank VDP",
+   "Mondel\u0113z International",
+   "Ninja Kiwi Games Bug Bounty program"
+  ]
+ },
+ {
+  "date": "Fri 27 Nov 2026",
+  "changes": 12,
+  "new_bounty_programs": [
+   "Allegro"
+  ],
+  "removed": [
+   "Alasco GmbH - Bug Bounty Program",
+   "Kinepolis Group"
+  ]
+ }
+]
